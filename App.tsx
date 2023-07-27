@@ -8,11 +8,12 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Profile from './src/views/Profile';
 import Information from './src/views/Information';
 import Maps from './src/views/Maps';
-import Camera from './src/views/Camera';
+import CameraComponent from './src/views/Camera';
 //Libraries from ReactNavigation
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Sensores from './src/views/Sensores';
 
 function App(): JSX.Element {
   // Create the BottomTabNavigator for the bottom tabs
@@ -27,6 +28,8 @@ function App(): JSX.Element {
             iconName = 'close';
           } else if (route.name === 'Camara') {
             iconName = 'camera';
+          }else if(route.name=='Sensores'){
+            iconName='adjust'
           }
 
           // Devuelve el icono correspondiente
@@ -43,7 +46,8 @@ function App(): JSX.Element {
       
       >
       <BottomTabNavigator.Screen name="Mapas" component={Maps} />
-      <BottomTabNavigator.Screen name="Camara" component={Camera} />
+      <BottomTabNavigator.Screen name="Camara" component={CameraComponent} />
+      <BottomTabNavigator.Screen name="Sensores" component={Sensores} />
     </BottomTabNavigator.Navigator>
   );
 
